@@ -27,12 +27,17 @@ def home():
 def collections():
     email = None
     if request.method == 'POST':
-        email = request.form('email')
+        email = request.form['email']
         reg = User(email)
         db.session.add(reg)
         db.session.commit()
         return render_template('success.html')
     return render_template("home.html")
+
+@app.route('/return_emails', methods=['GET'])
+def return_emails(): 
+    all_emails = db.session.query(User.email).all()
+    return jsonify(all_emails)
 
 if __name__ == "__main__": 
     app.debug = True
