@@ -8,7 +8,7 @@ flask = "*"
 "psycopg2" = "*"
 flask-sqlalchemy = "*"
 gunicorn = "*"
-heroku = "*"
+flask-heroku = "*"
 
 [dev-packages]
 
